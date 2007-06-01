@@ -6,7 +6,7 @@
 Summary:	This module enables PHP access to the ImageMagick MagickWand API
 Name:		php-%{modname}
 Version:	0.1.9
-Release:	%mkrel 5
+Release:	%mkrel 6
 Group:		Development/PHP
 License:	BSD-style
 URL:		http://www.magickwand.org/
