@@ -12,7 +12,7 @@ License:	BSD-style
 URL:		http://www.magickwand.org/
 Source0:	http://www.magickwand.org/download/php/MagickWandForPHP-%{version}.tar.gz
 BuildRequires:	php-devel >= 3:5.2.0
-BuildRequires:	ImageMagick-devel >= 6.3.1
+BuildRequires:	ImageMagick-devel >= 6.3.5
 BuildRequires:	file
 BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
 
