@@ -5,12 +5,12 @@
 
 Summary:	This module enables PHP access to the ImageMagick MagickWand API
 Name:		php-%{modname}
-Version:	0.1.9
-Release:	%mkrel 9
+Version:	1.0.5
+Release:	%mkrel 1
 Group:		Development/PHP
 License:	BSD-style
 URL:		http://www.magickwand.org/
-Source0:	http://www.magickwand.org/download/php/magickwand-%{version}.tar.bz2
+Source0:	http://www.magickwand.org/download/php/MagickWandForPHP-%{version}.tar.gz
 BuildRequires:	php-devel >= 3:5.2.0
 BuildRequires:	ImageMagick-devel >= 6.3.1
 BuildRequires:	file
@@ -21,7 +21,7 @@ This module enables PHP access to the ImageMagick MagickWand API.
 
 %prep
 
-%setup -q -n %{modname}
+%setup -q -n MagickWandForPHP-%{version}
 
 # fix permissions
 find . -type f | xargs chmod 644
@@ -51,6 +51,18 @@ install -m0755 %{soname} %{buildroot}%{_libdir}/php/extensions/
 cat > %{buildroot}%{_sysconfdir}/php.d/%{inifile} << EOF
 extension = %{soname}
 EOF
+
+%post
+if [ -f /var/lock/subsys/httpd ]; then
+    %{_initrddir}/httpd restart >/dev/null || :
+fi
+
+%postun
+if [ "$1" = "0" ]; then
+    if [ -f /var/lock/subsys/httpd ]; then
+	%{_initrddir}/httpd restart >/dev/null || :
+    fi
+fi
 
 %clean
 [ "%{buildroot}" != "/" ] && rm -rf %{buildroot}
