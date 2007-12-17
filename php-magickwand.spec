@@ -14,7 +14,6 @@ Source0:	http://www.magickwand.org/download/php/MagickWandForPHP-%{version}.tar.
 BuildRequires:	php-devel >= 3:5.2.0
 BuildRequires:	ImageMagick-devel >= 6.3.5
 BuildRequires:	file
-BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
 
 %description
 This module enables PHP access to the ImageMagick MagickWand API.
