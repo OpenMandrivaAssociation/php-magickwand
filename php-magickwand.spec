@@ -5,12 +5,13 @@
 
 Summary:	This module enables PHP access to the ImageMagick MagickWand API
 Name:		php-%{modname}
-Version:	1.0.5
-Release:	%mkrel 2
+Version:	1.0.6
+Release:	%mkrel 1
 Group:		Development/PHP
 License:	BSD-style
 URL:		http://www.magickwand.org/
 Source0:	http://www.magickwand.org/download/php/MagickWandForPHP-%{version}.tar.gz
+Patch0:		MagickWandForPHP-imagemagick-6.3.8.5.diff
 BuildRequires:	php-devel >= 3:5.2.0
 BuildRequires:	imagemagick-devel >= 6.3.5
 BuildRequires:	file
@@ -22,6 +23,7 @@ This module enables PHP access to the ImageMagick MagickWand API.
 %prep
 
 %setup -q -n MagickWandForPHP-%{version}
+%patch0 -p0
 
 # fix permissions
 find . -type f | xargs chmod 644
@@ -29,6 +31,9 @@ find . -type f | xargs chmod 644
 # strip away annoying ^M
 find . -type f|xargs file|grep 'CRLF'|cut -d: -f1|xargs perl -p -i -e 's/\r//'
 find . -type f|xargs file|grep 'text'|cut -d: -f1|xargs perl -p -i -e 's/\r//'
+
+# lib64 fixes
+perl -pi -e "s|/lib\b|/%{_lib}|g" config.m4
 
 %build
 %serverbuild
