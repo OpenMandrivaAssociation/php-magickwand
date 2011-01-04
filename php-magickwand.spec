@@ -14,6 +14,7 @@ Source0:	http://www.magickwand.org/download/php/MagickWandForPHP-%{version}.tar.
 BuildRequires:	php-devel >= 3:5.2.0
 BuildRequires:	imagemagick-devel >= 6.3.5
 BuildRequires:	file
+BuildRequires:	libxt-devel
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
