@@ -5,17 +5,16 @@
 
 Summary:	This module enables PHP access to the ImageMagick MagickWand API
 Name:		php-%{modname}
-Version:	1.0.9
-Release:	%mkrel 2
+Version:	1.0.9.2
+Release:	1
 Group:		Development/PHP
 License:	BSD-style
 URL:		http://www.magickwand.org/
-Source0:	http://www.magickwand.org/download/php/MagickWandForPHP-%{version}.tar.gz
+Source0:	http://www.magickwand.org/download/php/MagickWandForPHP-1.0.9-2.tar.gz
 BuildRequires:	php-devel >= 3:5.2.0
 BuildRequires:	imagemagick-devel >= 6.3.5
 BuildRequires:	file
 BuildRequires:	libxt-devel
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
 This module enables PHP access to the ImageMagick MagickWand API.
@@ -73,7 +72,6 @@ fi
 [ "../package.xml" != "/" ] && rm -f ../package.xml
 
 %files 
-%defattr(-,root,root)
 %doc AUTHOR CREDITS ChangeLog LICENSE README TODO
 %attr(0644,root,root) %config(noreplace) %{_sysconfdir}/php.d/%{inifile}
 %attr(0755,root,root) %{_libdir}/php/extensions/%{soname}
@@ -239,4 +237,5 @@ fi
 
 * Sat Jan 27 2007 Oden Eriksson <oeriksson@mandriva.com> 0.1.9-1mdv2007.1
 - initial Mandriva package
+
 
