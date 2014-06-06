@@ -2,6 +2,8 @@
 %define dirname %{modname}
 %define soname %{modname}.so
 %define inifile A56_%{modname}.ini
+%define upstream_version 1.0.9-2
+%define base_version 1.0.9
 
 Summary:	This module enables PHP access to the ImageMagick MagickWand API
 
@@ -11,7 +13,7 @@ Release:	3
 Group:		Development/PHP
 License:	BSD-style
 URL:		http://www.magickwand.org/
-Source0:	http://www.magickwand.org/download/php/MagickWandForPHP-%{version}.tar.gz
+Source0:	http://www.magickwand.org/download/php/MagickWandForPHP-%{upstream_version}.tar.gz
 BuildRequires:	php-devel >= 3:5.2.0
 BuildRequires:	imagemagick-devel >= 6.3.5
 BuildRequires:	file
@@ -22,7 +24,7 @@ This module enables PHP access to the ImageMagick MagickWand API.
 
 %prep
 
-%setup -q -n MagickWandForPHP-%{version}
+%setup -q -n MagickWandForPHP-%{base_version}
 
 # fix permissions
 find . -type f | xargs chmod 644
