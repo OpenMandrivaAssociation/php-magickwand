@@ -12,7 +12,7 @@ Version:	1.0.9.2
 Release:	4
 Group:		Development/PHP
 License:	BSD-style
-URL:		http://www.magickwand.org/
+URL:		https://www.magickwand.org/
 Source0:	http://www.magickwand.org/download/php/MagickWandForPHP-%{upstream_version}.tar.gz
 BuildRequires:	php-devel >= 3:5.2.0
 BuildRequires:	imagemagick-devel >= 6.3.5
