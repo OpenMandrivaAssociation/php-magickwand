@@ -14,6 +14,11 @@ Group:		Development/PHP
 License:	BSD-style
 URL:		https://www.magickwand.org/
 Source0:	http://www.magickwand.org/download/php/MagickWandForPHP-%{upstream_version}.tar.gz
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	php-devel >= 3:5.2.0
 BuildRequires:	imagemagick-devel >= 6.3.5
 BuildRequires:	file
